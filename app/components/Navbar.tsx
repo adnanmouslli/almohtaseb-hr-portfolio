@@ -40,7 +40,7 @@ export default function Navbar() {
         <Link href="/" className="flex items-center gap-3 group">
           <div className="relative h-12 w-12 overflow-hidden rounded-xl ring-1 ring-black/5 bg-white">
             <Image
-              src="/logo.png"
+              src="/logo-app-bar.png"
               alt="شعار برنامج المحتسب"
               fill
               sizes="48px"

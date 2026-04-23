@@ -48,8 +48,9 @@ export const metadata: Metadata = {
     images: [{ url: "/logo.png", width: 1024, height: 1024, alt: "برنامج المحتسب" }],
   },
   icons: {
-    icon: "/logo.png",
-    apple: "/logo.png",
+    icon: "/logo-app-bar.png",
+    shortcut: "/logo-app-bar.png",
+    apple: "/logo-app-bar.png",
   },
 };
 
