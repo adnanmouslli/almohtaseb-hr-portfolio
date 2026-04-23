@@ -14,9 +14,9 @@ const contactChannels = [
     href: "http://almohtaseb-hr.com/",
   },
   {
-    title: "البريد الإلكتروني",
-    value: "info@almohtaseb-hr.com",
-    href: "mailto:info@almohtaseb-hr.com",
+    title: "رقم الهاتف",
+    value: "+201023467646",
+    href: "tel:+201023467646",
   },
   {
     title: "ساعات العمل",
