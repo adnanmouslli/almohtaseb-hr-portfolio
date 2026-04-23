@@ -1,26 +1,144 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Brand palette — derived from the Almohtaseb logo */
+  --color-brand-50: #fdf4f4;
+  --color-brand-100: #fbe5e6;
+  --color-brand-200: #f5c3c5;
+  --color-brand-300: #ea969a;
+  --color-brand-400: #db6267;
+  --color-brand-500: #c9363e;
+  --color-brand-600: #a01e23;
+  --color-brand-700: #8b1a1f;
+  --color-brand-800: #6e1519;
+  --color-brand-900: #4a0e11;
+  --color-brand-950: #2a0608;
+
+  --color-ink-50: #f6f6f5;
+  --color-ink-100: #e8e8e6;
+  --color-ink-200: #d1d1cd;
+  --color-ink-300: #a8a8a2;
+  --color-ink-400: #76766f;
+  --color-ink-500: #4d4d48;
+  --color-ink-600: #33332f;
+  --color-ink-700: #222220;
+  --color-ink-800: #151513;
+  --color-ink-900: #0b0b0a;
+
+  --color-surface: #faf7f5;
+  --color-surface-alt: #f1ece8;
+
+  --font-sans: var(--font-tajawal), "Tajawal", ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-cairo), "Cairo", ui-sans-serif, system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --background: var(--color-surface);
+  --foreground: var(--color-ink-900);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html[dir="rtl"] body {
+  font-family: var(--font-sans);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* A soft diagonal pattern for hero-style sections */
+.bg-grid-faint {
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(139, 26, 31, 0.08) 1px, transparent 0);
+  background-size: 22px 22px;
+}
+
+.bg-brand-gradient {
+  background: linear-gradient(135deg, #8b1a1f 0%, #4a0e11 60%, #1a1a1a 100%);
+}
+
+.text-brand-gradient {
+  background: linear-gradient(90deg, #c9363e 0%, #8b1a1f 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.section-shell {
+  position: relative;
+  isolation: isolate;
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid rgb(0 0 0 / 0.06);
+  border-radius: 1.25rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgb(139 26 31 / 0.25);
+  box-shadow: 0 20px 40px -20px rgb(139 26 31 / 0.25);
+}
+
+/* Subtle underline for active / hover links in RTL nav */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: -6px;
+  height: 2px;
+  background: linear-gradient(90deg, #c9363e, #8b1a1f);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.25s ease;
+  border-radius: 2px;
+}
+
+.nav-link:hover::after,
+.nav-link[data-active="true"]::after {
+  transform: scaleX(1);
+}
+
+/* Fade-in on initial load for page sections */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-rise {
+  animation: rise 0.7s ease both;
+}
+
+/* Scrollbar refinement */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#c9363e, #8b1a1f);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-surface-alt);
 }
