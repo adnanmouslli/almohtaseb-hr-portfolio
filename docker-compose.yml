@@ -1,0 +1,14 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: almohtaseb-hr-portfolio:latest
+    container_name: almohtaseb-hr-portfolio
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    environment:
+      NODE_ENV: production
+      PORT: "5000"
+      HOSTNAME: "0.0.0.0"
